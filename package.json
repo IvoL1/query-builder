@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "knex": "npx knex migrate:make"
+    "knex": "npx knex"
   },
   "author": "Ivo L.",
   "license": "ISC",
