@@ -20,6 +20,13 @@ app.get('/courses', async (req: Request, res: Response) => {
   res.json(courses);
 });
 
+app.put('/courses/:id', async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  await knex('courses').update({ name }).where({ id });
+  res.json();
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
 });
