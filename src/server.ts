@@ -14,6 +14,12 @@ app.post('/courses', async (req: Request, res: Response) => {
   res.status(201).json({ name });
 });
 
+app.get('/courses', async (req: Request, res: Response) => {
+  // const courses = await knex.raw('SELECT * FROM courses') usando comandos SQL
+  const courses = await knex('courses').select();
+  res.json(courses);
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
 });
