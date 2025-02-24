@@ -3,7 +3,7 @@ export default {
   connection: { filename: './src/database/database.db' }, // Define o arquivo do banco
   useNullAsDefault: true, // Necessário para SQLite
   migrations: {
-    extensions: 'ts',
+    extension: 'ts',
     directory: './src/database/migrations',
   },
 };

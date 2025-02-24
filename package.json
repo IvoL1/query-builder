@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "knex": "npx knex migrate:make"
   },
   "author": "Ivo L.",
   "license": "ISC",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.5",
+    "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
     "typescript": "^5.7.3"
   }
