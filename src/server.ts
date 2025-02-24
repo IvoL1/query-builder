@@ -1,11 +1,17 @@
 import express, { Request, Response } from 'express';
+import { knex } from './database/knex';
 
 const app = express();
 const PORT = 3333;
 app.use(express.json());
 
-app.get('/', (_: Request, res: Response) => {
-  res.json({ message: 'Hello World!' });
+app.post('/courses', async (req: Request, res: Response) => {
+  const { name } = req.body;
+
+  await knex('courses').insert({
+    name: name,
+  });
+  res.status(201).json({ name });
 });
 
 app.listen(PORT, () => {
