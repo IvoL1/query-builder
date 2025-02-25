@@ -50,6 +50,17 @@ app.delete("/modules/:id", async (req: Request, res: Response) => {
   res.json();
 });
 
+app.get("/courses/:id/modules", async (req: Request, res: Response) => {
+  const courses = await knex("courses")
+    .select(
+      "course_modules.id",
+      "course_modules.name AS module",
+      "courses.name AS course"
+    )
+    .join("course_modules", "courses.id", "course_modules.course_id");
+  res.json(courses);
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
 });
